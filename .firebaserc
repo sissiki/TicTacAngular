@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tic-tac-toe-nglr"
+  },
+  "targets": {
+    "tic-tac-toe-nglr": {
+      "hosting": {
+        "myapp": [
+          "tic-tac-toe-nglr"
+        ]
+      }
+    }
+  }
+}

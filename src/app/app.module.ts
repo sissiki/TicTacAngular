@@ -8,6 +8,13 @@ import { BoardComponent } from './board/board.component';
 
 import {NbThemeModule, NbLayoutModule, NbButtonModule} from '@nebular/theme';
 import { NbEvaIconsModule} from '@nebular/eva-icons';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+//import { AngularFireStorageModule, StorageBucket } from '@angular/fire/storage';
 
 
 
@@ -23,7 +30,12 @@ import { NbEvaIconsModule} from '@nebular/eva-icons';
     NbThemeModule.forRoot({name:'dark'}),
     NbLayoutModule,
     NbEvaIconsModule,
-    NbButtonModule
+    NbButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireMessagingModule,
+    //AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
